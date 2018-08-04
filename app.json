@@ -1,9 +1,9 @@
 {
   "pages":[
+    "pages/main/main",
     "pages/index/index",
     "pages/logs/logs",
     "pages/picker/picker",
-    "pages/main/main",
     "pages/test/test"
   ],
   "window":{

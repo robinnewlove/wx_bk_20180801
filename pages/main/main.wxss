@@ -1,0 +1,2 @@
+.top{height: 128rpx; text-align: center; font-size:30rpx; background: #eeeeee;color: #84868a;line-height:180%;padding-top: 14rpx;font-weight: normal; overflow: hidden}
+.banner{background: url('https://www.zhenzhezixun.com/images/banner.jpg');height: 300rpx; background-size: 100% auto}
