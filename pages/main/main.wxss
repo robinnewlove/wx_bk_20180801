@@ -1,2 +1,22 @@
+page{
+  background-color: #eeeeee;
+}
+.page{background: #eeeeee;}
 .top{height: 128rpx; text-align: center; font-size:30rpx; background: #eeeeee;color: #84868a;line-height:180%;padding-top: 14rpx;font-weight: normal; overflow: hidden}
-.banner{background: url('https://www.zhenzhezixun.com/images/banner.jpg');height: 300rpx; background-size: 100% auto}
+.banner{background: url('https://www.zhenzhezixun.com/images/banner.jpg');height: 280rpx; background-size: 100% auto; color: #fff; text-align: center;font-size: 34rpx;padding-top: 20rpx}
+
+.userinfobox{padding:38rpx 30rpx 0 38rpx;overflow: hidden;background: #fff;}
+.userheader{width:56rpx; height: 56rpx;border-radius:56rpx; float: left; overflow: hidden; margin-right: 20rpx;}
+.userheadertxt{float: left; height: 56rpx; line-height: 56rpx;font-size: 44rpx;color:#666;}
+
+.navigator-guize{float: right; height: 56rpx; line-height: 56rpx;color:#1c1c1c;font-size: 26rpx;}
+
+.allstep{color: #c9ff27; font-size: 70rpx;padding: 0 5rpx; position: relative;top:3rpx;}
+
+.navigator-exchange{background: url('https://www.zhenzhezixun.com/images/btn-1.png');width: 194rpx;  height: 68rpx; background-size: 100% auto; margin: auto; margin-top: 20rpx;}
+
+/*圆形进度条*/
+.circleBar{width: 100%;text-align: center; background: #fff;padding: 15rpx 0;}
+.circleBarbody{display: inline-block;position: relative; text-align: center;}
+.centerWord{position: absolute;top:0;font-size: 24rpx;text-align: center;width: 100%;color: #a7a7a7; padding-top: 80rpx}
+.centerWord .step{display: block;font-size: 50rpx;color: #333;}

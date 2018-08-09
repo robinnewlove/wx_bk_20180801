@@ -1,3 +1,8 @@
-<open-data type="groupName" open-gid="xxxxxx"></open-data>
-<open-data type="userAvatarUrl"></open-data>
-<open-data type="userGender" lang="zh_CN"></open-data>
+<view class='circleBar'>
+  <view class="wrap">
+    <view class="top">
+        <canvas class="cir" style=' width:206px; height:206px;' canvas-id="canvasArc"></canvas>
+        <view class="centerWord"><text class="centerWord-txt">今日步数</text>9000</view>
+    </view>
+  </view>
+</view>
