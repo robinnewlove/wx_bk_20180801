@@ -15,8 +15,10 @@ page{
 
 .navigator-exchange{background: url('https://www.zhenzhezixun.com/images/btn-1.png');width: 194rpx;  height: 68rpx; background-size: 100% auto; margin: auto; margin-top: 20rpx;}
 
+.navigator-share{background: url('https://www.zhenzhezixun.com/images/btn-2.png');width: 194rpx;  height: 68rpx; background-size: 100% auto; margin: auto; margin-top: 20rpx;}
+
 /*圆形进度条*/
-.circleBar{width: 100%;text-align: center; background: #fff;padding: 15rpx 0;}
+.circleBar{width: 100%;text-align: center; background: #fff;padding: 15rpx 0 42rpx 0; margin-bottom:20rpx;}
 .circleBarbody{display: inline-block;position: relative; text-align: center;}
 .centerWord{position: absolute;top:0;font-size: 24rpx;text-align: center;width: 100%;color: #a7a7a7; padding-top: 80rpx}
 .centerWord .step{display: block;font-size: 50rpx;color: #333;}

@@ -18,5 +18,14 @@
             <canvas class="cir" style=' width:120px; height:120px;' canvas-id="canvasArc"></canvas>
             <view class="centerWord"><text>今日步数</text><text class="step">{{allstep}}</text></view>
         </view>
+        <navigator url="/page/navigate/navigate?title=navigate" class="navigator-share"></navigator>
+    </view>
+    <view>
+
+        <view wx:for="{{friendlist}}" wx:key="username">
+          <image src="{{item.userheader}}">
+ </image><view>{{item.username}}</view><view>{{item.userstep}}</view>
+        </view>
+
     </view>
 </view>

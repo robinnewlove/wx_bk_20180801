@@ -6,8 +6,10 @@ Page({
         encryptedData:null,
         iv:null,
         sessionId:null,
+        openId:null,
         step:null,
-        allstep:0
+        allstep:0,
+        friendlist:[]
     },
     onLoad: function () {
         let that = this;
@@ -22,11 +24,16 @@ Page({
                     },
                     method:"GET",
                     success:function (res){
-                        console.log(res.data);
-                        var sessionId = res.data;
-                        that.setData({ sessionId: sessionId })
-                        wx.setStorageSync('sessionId', sessionId)
+                        console.log(res.data.openid);
+                        console.log(res.data.session_key);
+                        var sessionId = res.data.session_key;
+                        that.setData({
+                            sessionId: sessionId,
+                            openId: res.data.openid
+                        });
+                        wx.setStorageSync('sessionId', sessionId);
                       //console.log(res.data)
+                        //获取微信步数代码
                         wx.getWeRunData({
                             success(res) {
                                 console.log(res);
@@ -38,6 +45,9 @@ Page({
                                 that.decodeUserInfo();
                             }
                         })
+
+                        //获取朋友
+                        that.getFriendList();
                     }
                   })
                 } else {
@@ -63,9 +73,11 @@ Page({
             // header: {}, // 设置请求的 header
             success: function (res) {
                 console.log(res.data);
+
                 let todayStep = res.data.stepInfoList.pop();
                 that.setData({
                     allstep: todayStep.step
+                    //allstep: 15000
                  });
                  //console.log(that.data.step);
                 // 以下两个是测试数据
@@ -89,9 +101,13 @@ Page({
          */
         let that = this;
         let copyRightItems = 0;
+        if(rightItems <= 1){
+            rightItems = 2;
+        }else if(rightItems > 100){
+            rightItems = 100;
+        }
         that.setData({
             timer: setInterval(function () {
-                copyRightItems++;
                 if (copyRightItems == rightItems) {
                     clearInterval(that.data.timer)
                 } else {
@@ -129,11 +145,32 @@ Page({
                     cxt_arc.fill();
                     cxt_arc.draw();
                 }
+                copyRightItems++;
             }, 20)
         })
     },
     /*下拉刷新*/
     onPullDownRefresh: function(){
         wx.stopPullDownRefresh()
+    },
+
+    getFriendList: function () {
+        let that = this;
+
+        wx.request({
+            url: 'https://www.zhenzhezixun.com/json/friendlist.json',
+            data: {
+                openId: that.data.openId
+            },
+            method: 'GET',
+            success: function (res) {
+                //console.log(res.data)
+                that.setData({
+                    friendlist: res.data,
+                });
+
+            }
+        })
+
     }
 })
