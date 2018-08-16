@@ -1,28 +1,3 @@
-/* 圆形进度条 */
-
-.circleBar {
-  width: 100%;
-  height: auto;
-  overflow: hidden;
-  cursor: pointer;
-}
-
-.cir {
-  display: inline-block;
-  background-color: #fff;
-
-}
-
-.top {
-  text-align: center;
-}
-
-.centerWord {
-  width: 100%;
-  position: absolute;
-  top: 30px;
-  left: 0;
-  text-align: center;
-  color: #a7a7a7;font-size: 40rpx;
-}
-.centerWord-txt{display: block;font-size: 18rpx;}
+.scroll-view-item{height: 200px;position: absolute;width: 100%;}
+.bc_green{background: #00AC50}
+.bc_red{background: #ff555c}

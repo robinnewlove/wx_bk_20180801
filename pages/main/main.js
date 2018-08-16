@@ -9,7 +9,10 @@ Page({
         openId:null,
         step:null,
         allstep:0,
-        friendlist:[]
+        friendlist:[],
+        userOrderList:[],
+        animationData: {},
+        maskboxshow:""
     },
     onLoad: function () {
         let that = this;
@@ -48,6 +51,9 @@ Page({
 
                         //获取朋友
                         that.getFriendList();
+
+                        //获取排行榜
+                        that.getUserOrderList()
                     }
                   })
                 } else {
@@ -55,8 +61,6 @@ Page({
                 }
               }
         })
-
-
 
     },
     decodeUserInfo: function () {
@@ -154,6 +158,7 @@ Page({
         wx.stopPullDownRefresh()
     },
 
+    //获取用户加油列表
     getFriendList: function () {
         let that = this;
 
@@ -172,5 +177,78 @@ Page({
             }
         })
 
+    },
+
+    //获取用户排行
+    getUserOrderList: function () {
+        let that = this;
+
+        wx.request({
+            url: 'https://www.zhenzhezixun.com/json/userOrderList.json',
+            data: {
+                openId: that.data.openId
+            },
+            method: 'GET',
+            success: function (res) {
+                //console.log(res.data)
+                that.setData({
+                    userOrderList: res.data,
+                });
+
+            }
+        })
+
+    },
+
+    //显示分享层
+    showshare:function(){
+
+
+        var animation = wx.createAnimation({
+            duration: 500,
+            timingFunction: 'ease',
+        })
+
+        this.animation = animation
+
+        animation.bottom(0).step();
+
+        this.setData({
+            animationData:animation.export(),
+            maskboxshow:"show"
+
+        })
+    },
+    //隐藏分享层
+    hideshare:function(){
+
+
+        var animation = wx.createAnimation({
+            duration: 500,
+            timingFunction: 'ease',
+        })
+
+        this.animation = animation
+
+        animation.bottom("-450rpx").step();
+
+        this.setData({
+            animationData:animation.export(),
+            maskboxshow:""
+
+        })
+    },
+
+    //分享
+    onShareAppMessage: function (res) {
+        if (res.from === 'button') {
+            // 来自页面内转发按钮
+            console.log(res.target)
+        }
+        return {
+            title: '快来帮我凑步数',
+            path: '/page/main/main?id=123',
+            imageUrl:'https://www.zhenzhezixun.com/images/share.jpg'
+        }
     }
 })
